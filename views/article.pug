@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1= article.title
+    h7 Uploaded By #{author}
+    br
+    span= 'Published: '+moment(article.date).format("MMM Do YY")+''
+    hr
+    p Category: #{article.category}
+    p Colour: #{article.colour}
+    p Description: #{article.body}  
+    img.image(src='./' +image)  
+    hr
+    if user
+        if user.id ==article.author
+            a.btn.btn-default(href='/articles/edit/'+article._id) Edit
+            a.btn.btn-danger.delete-article(href="#", data-id=article._id) Delete
+        else
+            a.btn.btn-secondary(href="/", data-id=article._id) Request

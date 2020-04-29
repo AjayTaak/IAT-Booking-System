@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    h1 #{title}
+    form(method='POST', action='/articles/added',enctype='multipart/form-data')
+        #form-group
+            label Title:
+            input.form-control(name='title', type='text')
+        #form-group
+            label Body:
+            textarea.form-control(name='body')
+        br
+        #form-group
+            label(for='cars') Choose a Category :
+            select(name='category')
+                option(value='pet') Pet
+                option(value='jewellery') Jewellery
+                option(value='phones') Phone
+        #form-group
+            label(for='date') Date Found :
+                input.form-control(name='date', type='date')
+        #form-group
+            label Colour:
+                input.form-control(name='colour', type='text')
+        br
+        #form-group
+            input(type='file', name='myImage', accept='image/*')
+        br
+        input.btn.btn-primary(type='submit',value='Submit')       
